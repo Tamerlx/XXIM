@@ -1,5 +1,5 @@
 package com.xxim.factory.transport;
 
-public class LogicConnection {
+public abstract class LogicConnection {
 
 }
