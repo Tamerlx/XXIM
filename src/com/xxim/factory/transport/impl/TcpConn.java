@@ -11,7 +11,9 @@ public class TcpConn extends LogicConnection{
 	public void startService(int port) {
 		try {
 			if(serverSocket == null){
+				System.out.println("aaa");
 				serverSocket = new ServerSocket(port);
+				System.out.println("bbbb");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
