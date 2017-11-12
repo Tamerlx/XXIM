@@ -12,7 +12,8 @@ public class Main {
 		LogicConnection tcpConn = new TcpConn();
 		HandlerProtocol handler = new HandlerImpl();
 		XXIMRouteManager manager = XXIMRouteManager.getInstance();
-		manager.setup(tcpConn, 4700, handler);
+		manager.setup(tcpConn, 10000, handler);
+		manager.startService();
 	}
 
 }

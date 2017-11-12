@@ -3,7 +3,9 @@ package com.xxim;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.xxim.factory.ClientFactory;
 import com.xxim.factory.client.AbstractClient;
@@ -26,18 +28,18 @@ public class XXIMRouteManager {
 	}
 	
 	public synchronized void setup(LogicConnection logicConnection,int port,HandlerProtocol handler) {
+		exec = Executors.newCachedThreadPool();
 		this.logicConnection = logicConnection;
 		this.logicConnection.startService(port);
 		this.handler = handler;
 	}
 	
-	private void startService() {
+	public void startService() {
 		Socket clientSocket = logicConnection.accept();
 		String clientIp = clientSocket.getInetAddress().getHostAddress();
 		int clientPort = clientSocket.getPort();
-		String socketKey = clientIp + clientPort;
+		String socketKey = clientIp + ":" + clientPort;
 		XXIMContext context = XXIMContext.getInstance();
-		
 		
 		Thread thread = new Thread(new Runnable() {
 			@Override
@@ -51,7 +53,6 @@ public class XXIMRouteManager {
 				}
 				byte[] bytes = new byte[1024];
 	            int len = -1;
-	            ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	            try {
 					while((len=client.read(bytes)) != -1){
 						handler.forwardMessage(client, bytes);
