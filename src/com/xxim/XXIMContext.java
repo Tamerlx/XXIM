@@ -6,7 +6,7 @@ import java.util.Map;
 import com.xxim.factory.client.AbstractClient;
 
 public class XXIMContext {
-	private static XXIMContext xximContext = new XXIMContext();
+	private final static XXIMContext xximContext = new XXIMContext();
 	
 	private final Map<String,AbstractClient> clientMap = new HashMap<String,AbstractClient>();
 	

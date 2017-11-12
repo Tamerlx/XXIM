@@ -1,12 +1,10 @@
 package com.xxim.factory.client;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-import com.google.protobuf.ByteString.Output;
 import com.xxim.utils.StringUtil;
 
 public abstract class AbstractClient {

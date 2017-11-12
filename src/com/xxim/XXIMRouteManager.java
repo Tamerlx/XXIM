@@ -1,9 +1,7 @@
 package com.xxim;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -13,7 +11,7 @@ import com.xxim.factory.handler.HandlerProtocol;
 import com.xxim.factory.transport.LogicConnection;
 
 public class XXIMRouteManager {
-	private static XXIMRouteManager xximRouteManage = new XXIMRouteManager();
+	private final static XXIMRouteManager xximRouteManage = new XXIMRouteManager();
 	
 	//线程池
 	private static ExecutorService exec;
@@ -28,7 +26,9 @@ public class XXIMRouteManager {
 	}
 	
 	public synchronized void setup(LogicConnection logicConnection,int port,HandlerProtocol handler) {
-		exec = Executors.newCachedThreadPool();
+		if(exec == null) {
+			exec = Executors.newCachedThreadPool();
+		}
 		this.logicConnection = logicConnection;
 		this.logicConnection.startService(port);
 		this.handler = handler;
