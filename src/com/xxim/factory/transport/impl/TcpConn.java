@@ -1,19 +1,36 @@
 package com.xxim.factory.transport.impl;
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 import com.xxim.factory.transport.LogicConnection;
 
 public class TcpConn extends LogicConnection{
-
+	private ServerSocket serverSocket;
 	@Override
 	public void startService(int port) {
-		// TODO Auto-generated method stub
+		try {
+			if(serverSocket == null){
+				serverSocket = new ServerSocket(port);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				serverSocket.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
 		
 	}
 
 	@Override
 	public Socket accept() {
-		// TODO Auto-generated method stub
+		try {
+			return serverSocket.accept();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

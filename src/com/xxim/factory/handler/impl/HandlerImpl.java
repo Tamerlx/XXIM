@@ -7,7 +7,7 @@ public class HandlerImpl implements HandlerProtocol {
 
 	@Override
 	public void forwardMessage(AbstractClient client, byte[] bytes) {
-		
+		System.out.println(new String(bytes));
 
 	}
 

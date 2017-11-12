@@ -1,4 +1,4 @@
-package com;
+package com.xxim;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,11 +18,15 @@ public class XXIMContext {
 		return xximContext;
 	}
 	
-	public AbstractClient getClientById(String id) {
-		return clientMap.get(id);
+	public AbstractClient getClientById(String socketKey) {
+		return clientMap.get(socketKey);
 	}
 	
-	public void setClient(String id,AbstractClient clientProtocol) {
-		clientMap.put(id, clientProtocol);
+	public void setClient(String socketKey,AbstractClient clientProtocol) {
+		clientMap.put(socketKey, clientProtocol);
+	}
+	
+	public boolean contains(String sockeyKey) {
+		return clientMap.containsKey(sockeyKey);
 	}
 }
