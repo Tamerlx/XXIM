@@ -11,6 +11,7 @@ public class XXIMPackageCoder {
 
 	public void resetBuf(byte[] bytes) {
 		this.buffer = bytes;
+		this.cursor = 0;
 	}
 
 	public byte unpackByte() throws Exception {

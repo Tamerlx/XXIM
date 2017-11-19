@@ -1,6 +1,6 @@
 package com.xxim.codec;
 
 public class Const {
-	public static final byte magic_0 = (byte) 0xb0;
-	public static final byte magic_1 = (byte)0x58;
+	public static final byte MAGIC_SOH = (byte) 0x01;
+	public static final byte MAGIC_STX = (byte)0x02;
 }
