@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 import com.xxim.client.AbstractClient;
 import com.xxim.factory.ClientFactory;
 import com.xxim.transport.LogicConnection;
-import com.xxim.transport.handler.HandlerProtocol;
+import com.xxim.transport.handler.IProtocol;
 
 public class XXIMRouteManager {
 	private final static XXIMRouteManager xximRouteManage = new XXIMRouteManager();
@@ -18,14 +18,14 @@ public class XXIMRouteManager {
 	
 	private LogicConnection logicConnection;
 	
-	private HandlerProtocol handler;
+	private IProtocol handler;
 	
 	private XXIMRouteManager() {}
 	public static XXIMRouteManager getInstance() {
 		return xximRouteManage;
 	}
 	
-	public synchronized void setup(LogicConnection logicConnection,int port,HandlerProtocol handler) {
+	public synchronized void setup(LogicConnection logicConnection,int port,IProtocol handler) {
 		if(exec == null) {
 			exec = Executors.newCachedThreadPool();
 		}

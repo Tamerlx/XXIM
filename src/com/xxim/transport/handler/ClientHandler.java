@@ -2,7 +2,7 @@ package com.xxim.transport.handler;
 
 import com.xxim.client.AbstractClient;
 
-public class ClientHandler implements HandlerProtocol {
+public class ClientHandler implements IProtocol {
 
 	@Override
 	public void forwardMessage(AbstractClient client, byte[] bytes) {
