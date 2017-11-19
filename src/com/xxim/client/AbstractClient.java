@@ -1,4 +1,4 @@
-package com.xxim.factory.client;
+package com.xxim.client;
 
 import java.io.IOException;
 import java.io.InputStream;

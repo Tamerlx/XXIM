@@ -1,9 +1,9 @@
-package com.xxim.factory.transport.impl;
+package com.xxim.transport.impl;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.xxim.factory.transport.LogicConnection;
+import com.xxim.transport.LogicConnection;
 
 public class TcpConn extends LogicConnection{
 	private ServerSocket serverSocket;

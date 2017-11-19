@@ -1,4 +1,4 @@
-package com.xxim.factory.transport;
+package com.xxim.transport;
 import java.net.Socket;
 
 public abstract class LogicConnection {

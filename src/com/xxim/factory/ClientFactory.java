@@ -2,8 +2,8 @@ package com.xxim.factory;
 
 import java.net.Socket;
 
-import com.xxim.factory.client.AbstractClient;
-import com.xxim.factory.client.XXIMClient;
+import com.xxim.client.AbstractClient;
+import com.xxim.client.XXIMClient;
 
 public class ClientFactory {
 

@@ -3,7 +3,7 @@ package com.xxim;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.xxim.factory.client.AbstractClient;
+import com.xxim.client.AbstractClient;
 
 public class XXIMContext {
 	private final static XXIMContext xximContext = new XXIMContext();

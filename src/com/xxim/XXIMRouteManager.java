@@ -5,10 +5,10 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.xxim.client.AbstractClient;
 import com.xxim.factory.ClientFactory;
-import com.xxim.factory.client.AbstractClient;
-import com.xxim.factory.handler.HandlerProtocol;
-import com.xxim.factory.transport.LogicConnection;
+import com.xxim.transport.LogicConnection;
+import com.xxim.transport.handler.HandlerProtocol;
 
 public class XXIMRouteManager {
 	private final static XXIMRouteManager xximRouteManage = new XXIMRouteManager();

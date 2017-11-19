@@ -1,6 +1,6 @@
-package com.xxim.factory.handler;
+package com.xxim.transport.handler;
 
-import com.xxim.factory.client.AbstractClient;
+import com.xxim.client.AbstractClient;
 
 public interface HandlerProtocol {
 
