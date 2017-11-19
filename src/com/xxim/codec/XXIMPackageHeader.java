@@ -8,10 +8,15 @@ package com.xxim.codec;
  */
 public class XXIMPackageHeader {
 
-	public static final char magic_0 = 0xb0;
-	public static final char magic_1 = 0x58;
+	public byte magicHeader_0;
+	public byte magicHeader_1;
 	public char version;
 	public int bodyLength;
 	public char secType;
 	public short timeout;
+	
+	public int unpackData(XXIMPackageCoder pcoder) {
+		
+		return 0;
+	}
 }
