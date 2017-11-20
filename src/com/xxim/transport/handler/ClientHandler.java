@@ -1,9 +1,9 @@
 package com.xxim.transport.handler;
 
 import com.xxim.client.AbstractClient;
-import com.xxim.codec.XXIMPackageCoder;
-import com.xxim.codec.XXIMPackageHeader;
-import com.xxim.codec.XXIMPackageType;
+import com.xxim.codec.PackageDecoder;
+import com.xxim.codec.PackageHeader;
+import com.xxim.codec.PackageType;
 
 public class ClientHandler implements IProtocol {
 
@@ -11,14 +11,14 @@ public class ClientHandler implements IProtocol {
 	public int forwardMessage(AbstractClient client, byte[] bytes, int tag) {
 		
 		switch (tag) {
-		case XXIMPackageType.HEADER:
+		case PackageType.HEADER:
 			
 			// 1. 从magic开始
 			// 2. 不从magic开始，已经存在部分header
-			XXIMPackageCoder coder = new XXIMPackageCoder();
+			PackageDecoder coder = new PackageDecoder();
 			coder.resetBuf(bytes);
 			
-			XXIMPackageHeader header = new XXIMPackageHeader();
+			PackageHeader header = new PackageHeader();
 			int ret = -1;
 			try {
 				ret = header.unpackData(coder);

@@ -1,7 +1,7 @@
 package com.xxim.transport.handler;
 
 import com.xxim.client.AbstractClient;
-import com.xxim.codec.XXIMPackageType;
+import com.xxim.codec.PackageType;
 
 public interface IProtocol {
 

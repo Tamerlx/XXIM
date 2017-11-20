@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import com.xxim.client.AbstractClient;
-import com.xxim.codec.XXIMPackageType;
+import com.xxim.codec.PackageType;
 import com.xxim.factory.ClientFactory;
 import com.xxim.transport.LogicConnection;
 import com.xxim.transport.handler.IForwardMessageStatus;
@@ -56,15 +56,15 @@ public class XXIMRouteManager {
 				byte[] bytes = new byte[1024];
 	            int len = -1;
 	            try {
-	            		int tag = XXIMPackageType.HEADER;
+	            		int tag = PackageType.HEADER;
 					while((len=client.read(bytes)) != -1){
 						int status = handler.forwardMessage(client, bytes, tag);
 						switch (status) {
 						case IForwardMessageStatus.BODYUNCOMPLETED:
-							tag = XXIMPackageType.BODY;
+							tag = PackageType.BODY;
 							break;
 						default:
-							tag = XXIMPackageType.HEADER;
+							tag = PackageType.HEADER;
 							break;
 						}
 					}

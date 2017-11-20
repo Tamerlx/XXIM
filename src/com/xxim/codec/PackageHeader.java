@@ -6,7 +6,7 @@ package com.xxim.codec;
  * @author liuxu
  *
  */
-public class XXIMPackageHeader {
+public class PackageHeader {
 
 	public byte magicHeader_0;
 	public byte magicHeader_1;
@@ -15,14 +15,14 @@ public class XXIMPackageHeader {
 	public char secType;
 	public short timeout;
 	
-	public int unpackData(XXIMPackageCoder pcoder) throws Exception {
+	public int unpackData(PackageDecoder pcoder) throws Exception {
 		byte m_0 = pcoder.unpackByte();
-		if (m_0 != Const.MAGIC_SOH) {
+		if (m_0 != PackageConst.MAGIC_SOH) {
 			
 		}
 		
 		byte m_1 = pcoder.unpackByte();
-		if (m_1 != Const.MAGIC_STX) {
+		if (m_1 != PackageConst.MAGIC_STX) {
 			
 		}
 		
