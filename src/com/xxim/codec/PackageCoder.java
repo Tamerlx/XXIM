@@ -2,6 +2,12 @@ package com.xxim.codec;
 
 public class PackageCoder  extends BaseDodec{
 	
+	public void reset(int len) throws Exception {
+		if (len <= 0) throw new RuntimeException("PACK_LENGTH_ERROR");
+		this.buffer = new byte[len];
+		this.cursor = 0;
+	}
+	
 	public void packByte(byte val) {
 		if (buffer == null) {
 			buffer = new byte[512]; // default 512 byte

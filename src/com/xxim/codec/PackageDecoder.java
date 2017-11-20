@@ -2,6 +2,11 @@ package com.xxim.codec;
 
 public class PackageDecoder extends BaseDodec {
 
+	public void resetBuf(byte[] bytes) {
+		this.buffer = bytes;
+		this.cursor = 0;
+	}
+	
 	public byte unpackByte() throws Exception {
 		if (buffer.length < cursor + 1) {
 			throw new RuntimeException("PACK_LENGTH_ERROR");

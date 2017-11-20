@@ -9,11 +9,6 @@ public class BaseDodec {
 		this.buffer = null;
 	}
 	
-	public void resetBuf(byte[] bytes) {
-		this.buffer = bytes;
-		this.cursor = 0;
-	}
-	
 	public byte[] getBuffer() {
 		return buffer;
 	}
