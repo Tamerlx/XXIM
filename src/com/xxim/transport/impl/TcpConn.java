@@ -33,6 +33,4 @@ public class TcpConn extends LogicConnection{
 		}
 		return null;
 	}
-
-
 }

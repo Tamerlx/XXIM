@@ -1,6 +1,6 @@
 package com.xxim.codec;
 
-public class PackageCoder  extends BaseDodec{
+public class PackageCoder  extends BaseCodec{
 	
 	public void reset(int len) throws Exception {
 		if (len <= 0) throw new RuntimeException("PACK_LENGTH_ERROR");

@@ -1,27 +1,31 @@
 package com.xxim.transport.handler;
 
 import com.xxim.client.AbstractClient;
+import com.xxim.codec.Package;
 import com.xxim.codec.PackageDecoder;
 import com.xxim.codec.PackageHeader;
 import com.xxim.codec.PackageType;
 
 public class ClientHandler implements IProtocol {
-
+	
+	public Package currentPackage;
+	
 	@Override
 	public int forwardMessage(AbstractClient client, byte[] bytes, int tag) {
 		
 		switch (tag) {
 		case PackageType.HEADER:
-			
 			// 1. 从magic开始
 			// 2. 不从magic开始，已经存在部分header
 			PackageDecoder coder = new PackageDecoder();
 			coder.resetBuf(bytes);
+			if (currentPackage == null) {
+				currentPackage = new Package();
+			}
 			
-			PackageHeader header = new PackageHeader();
 			int ret = -1;
 			try {
-				ret = header.unpackData(coder);
+				ret = currentPackage.getHeader().unpackData(coder);
 				
 				if (ret == 0) {
 					// 解析body

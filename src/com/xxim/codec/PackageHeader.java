@@ -15,7 +15,13 @@ public class PackageHeader {
 	public char secType;
 	public short timeout;
 	
+	/**
+	 *  return 0 success ，-1 长度不够 ，其他结果代表对应子弹解析失败
+	 */
 	public int unpackData(PackageDecoder decoder) throws Exception {
+		if (decoder.buffer.length < PackageConst.PACKAGE_HEADER_LENGTH) {
+			return -1;
+		}
 		// magic start
 		byte m_0 = decoder.unpackByte();
 		if (m_0 != PackageConst.MAGIC_SOH) {

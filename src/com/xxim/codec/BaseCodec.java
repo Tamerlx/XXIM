@@ -1,10 +1,10 @@
 package com.xxim.codec;
 
-public class BaseDodec {
+public class BaseCodec {
 	protected byte[] buffer;
 	public int cursor;
 	
-	public BaseDodec() {
+	public BaseCodec() {
 		this.cursor = 0;
 		this.buffer = null;
 	}

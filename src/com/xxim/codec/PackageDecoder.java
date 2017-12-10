@@ -1,10 +1,20 @@
 package com.xxim.codec;
 
-public class PackageDecoder extends BaseDodec {
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+public class PackageDecoder extends BaseCodec {
 
 	public void resetBuf(byte[] bytes) {
 		this.buffer = bytes;
 		this.cursor = 0;
+	}
+	
+	public void appendBuf(byte[] bytes) throws IOException {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream(this.buffer.length + bytes.length);
+		baos.write(buffer);
+		baos.write(bytes, buffer.length, bytes.length);
+		this.buffer = baos.toByteArray();
 	}
 	
 	public byte unpackByte() throws Exception {
